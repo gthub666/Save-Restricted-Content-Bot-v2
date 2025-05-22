@@ -22,7 +22,11 @@ from aiojobs import create_scheduler
 
 # ----------------------------Bot-Start---------------------------- #
 
-loop = asyncio.get_event_loop()
+try:
+    loop = asyncio.get_running_loop()
+except RuntimeError:
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
 
 # Function to schedule expiry checks
 async def schedule_expiry_check():
