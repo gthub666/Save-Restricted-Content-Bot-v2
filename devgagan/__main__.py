@@ -38,8 +38,7 @@ async def devggn_boot():
     print("""
 ---------------------------------------------------
 📂 Bot Deployed successfully ...
-📝 Description: A Pyrogram bot for downloading files from Telegram channels or groups 
-                and uploading them back to Telegram.
+📝 Description: N/A
 👨‍💻 Author: Gagan
 🌐 GitHub: https://github.com/devgaganin/
 📬 Telegram: https://t.me/team_spy_pro
