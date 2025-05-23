@@ -28,7 +28,5 @@ from config import MONGO_DB, WEBSITE_URL, AD_API, LOG_GROUP
  
 @app.on_message(filters.command("start"))
 async def start_handler(client, message):
-    join = await subscribe(client, message)
-    if join == 1:
+    if await subscribe(client, message) == 1:
         return
-    return
