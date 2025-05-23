@@ -63,23 +63,16 @@ async def is_user_verified(user_id):
     return session is not None
  
  
+from pyrogram import filters
+from shared_client import app
+from subscribe_check import subscribe
+
 @app.on_message(filters.command("start"))
-async def token_handler(client, message):
-    """Handle the /token command."""
+async def start_handler(client, message):
     join = await subscribe(client, message)
     if join == 1:
         return
-    chat_id = "save_restricted_content_bots"
-    msg = await app.get_messages(chat_id, 796)
-    user_id = message.chat.id
-    if len(message.command) <= 1:
-        image_url = "https://i.postimg.cc/v8q8kGyz/startimg-1.jpg"
-        join_button = InlineKeyboardButton("Join Channel", url="https://t.me/team_spy_pro")
-        premium = InlineKeyboardButton("Get Premium", url="https://t.me/kingofpatal")   
-        keyboard = InlineKeyboardMarkup([
-            [join_button],   
-            [premium]    
-        ])
+    return
          
         await message.reply_photo(
             msg.photo.file_id,
